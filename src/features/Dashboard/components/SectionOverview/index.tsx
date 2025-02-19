@@ -100,12 +100,11 @@ export default function SectionOverview() {
 
   const productiveBalance = totalClmmPosition.add(totalStandardPosition).toString()
   const title1 = 'Token Price'
-  const title2 = 'Sol Balance'
-  const title3 = 'FDV'
-  const title4 = 'Liquidity'
-  const title5 = 'Marketcap'
-  const title6 = 'Volume in 24h'
-  const title7 = 'Price Change in 24h'
+  const title2 = 'FDV'
+  const title3 = 'Liquidity'
+  const title4 = 'Marketcap'
+  const title5 = 'Volume in 24h'
+  const title6 = 'Price Change in 24h'
   const title8 = 'Main Info'
 
   const tokenPrice = '$' + tokenData[0]?.priceUsd
@@ -209,14 +208,14 @@ export default function SectionOverview() {
         </Box>
 
         <Flex className="simplegrid" gap={[3, 6]} mx={[-5, 0]} mb={10} px={[5, 0]}>
-          <TokenInfoCard cardTitle={title1} cardValue="Token Price" color="#2B1BBF" />
-          <TokenInfoCard cardTitle={title3} cardImg={TotalsupplyImg} cardValue="FDV" color="#BF1B2C" />
-          <TokenInfoCard cardTitle={title4} cardImg={LiquidityImg} cardValue="Liquidity" color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title1} cardValue="$0.03880" color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title2} cardImg={TotalsupplyImg} cardValue="$0.78M" color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title3} cardImg={LiquidityImg} cardValue="$171.10K" color="#2B1BBF" />
         </Flex>
         <Flex className="simplegrid" gap={[3, 6]} mx={[-5, 0]} px={[5, 0]}>
-          <TokenInfoCard cardTitle={title5} cardImg={MarketcapImg} cardValue="Marketcap" color="#BF1B2C" />
-          <TokenInfoCard cardTitle={title6} cardImg={VolumeImg} cardValue="Volume in 24h" color="#2B1BBF" />
-          <TokenInfoCard cardTitle={title7} cardValue="Price Change in 24h" color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title4} cardImg={MarketcapImg} cardValue="$0.78M" color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title5} cardImg={VolumeImg} cardValue="$87.81K" color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title6} cardValue="-2.22%" color="#BF1B2C" />
         </Flex>
 
         <Box bg="#222" borderY="1px solid #E6C066" mt={14} p={6} borderRadius="md" color="white" fontFamily="monospace" width="100%">

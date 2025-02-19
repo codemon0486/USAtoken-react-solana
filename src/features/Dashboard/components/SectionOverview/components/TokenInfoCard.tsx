@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, HStack, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, GridItem, HStack, Tab, Text } from '@chakra-ui/react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -185,31 +185,23 @@ export default function TokenInfoCard({
         >
           {/* {connected ? ( */}
           <Box
-            flexGrow={2}
-            // alignItems={'center'}
-            maxHeight={'40vh'}
-            display={'flex'}
-            // columnGap={2}
-            // rowGap={[1, 4]}
+          // alignItems={'center'}
+          // columnGap={2}
+          // rowGap={[1, 4]}
           >
-            <Flex placeItems="center" h="14">
-              <GridItem area={'pie'} pr={2}>
-                {/* <PortfolioPieChart data={currentAsset.list} valueDataKey="percentage" /> */}
-                {cardImg ? <img src={cardImg?.src} width="40px" alt="card" /> : ''}
+            <Text fontSize="md" fontFamily="Konexy Personal Use">
+              {cardTitle}
+            </Text>
+
+            <Flex mt={4} alignItems="center" py={4}>
+              <GridItem display="flex" mr={4}>
+                {cardImg ? <img src={cardImg?.src} width="40px" alt="card" /> : null}
               </GridItem>
 
-              <GridItem
-                fontFamily="Konexy Personal Use"
-                area={'total'}
-                placeItems="center"
-                justifySelf={['center', 'unset']}
-                fontSize={{ base: 'sm', md: 'md' }}
-              >
-                {/* <AssetsTotal total={currentAsset.summary.toString()} /> */}
+              <GridItem fontFamily="Konexy Personal Use" display="flex" fontSize={{ base: 'md', md: 'xl' }}>
                 {cardValue}
               </GridItem>
             </Flex>
-
             {/* {tab !== 'Assets by token' ? (
                 <GridItem area={'tab'} alignSelf={'center'} justifySelf={'end'}>
                   <AssetsTab
