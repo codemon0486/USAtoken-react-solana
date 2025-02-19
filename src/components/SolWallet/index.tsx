@@ -53,7 +53,10 @@ const SolWallet: React.FC = () => {
           display={'flex'}
           borderBottom={'2px solid'}
           borderColor={currentWallet === 'binance' ? '#2B1BBF' : '#e6c066'}
-          onClick={() => setCurrentWallet('binance')}
+          onClick={() => {
+            setCurrentWallet('binance')
+            setShowButton(false)
+          }}
         >
           <Image src="/images/coin/binance.png" w={8} />
           <Box>
@@ -70,7 +73,10 @@ const SolWallet: React.FC = () => {
           display={'flex'}
           borderBottom={'2px solid'}
           borderColor={currentWallet === 'solana' ? '#2B1BBF' : '#e6c066'}
-          onClick={() => setCurrentWallet('solana')}
+          onClick={() => {
+            setCurrentWallet('solana')
+            setShowButton(false)
+          }}
         >
           <Image src="/images/coin/solana.png" w={8} />
           <Text fontSize={'3xl'} ml={1}>

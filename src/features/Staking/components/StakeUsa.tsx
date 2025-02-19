@@ -95,7 +95,7 @@ export default function StakeUs() {
               justifyContent="space-between"
               borderRadius="20px"
             >
-              <InfoBox title="Staked Amount" value="0.76 USA" />
+              <InfoBox title="Staked Amount" value="19.8 USA" />
               <InfoBox title="APR" value="25%" />
             </Box>
             <Box
@@ -182,8 +182,8 @@ export default function StakeUs() {
           </Box>
 
           <Box w={{ base: '100%', sm: '100%' }} display="flex" mt="10px" flexDirection="column" alignItems="center" justifyContent="center">
-            <SummaryBox leftText="You will receive" rightText="No Limit" />
-            <SummaryBox leftText="Exchange rate" rightText="303030303 USA" />
+            <SummaryBox leftText="Transaction cost" rightText="No Limit" />
+            <SummaryBox leftText="Reward Fee" rightText="303030303 USA" />
           </Box>
         </Box>
       </Box>

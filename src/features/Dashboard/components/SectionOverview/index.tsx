@@ -208,7 +208,7 @@ export default function SectionOverview() {
         </Box>
 
         <Flex className="simplegrid" gap={[3, 6]} mx={[-5, 0]} mb={10} px={[5, 0]}>
-          <TokenInfoCard cardTitle={title1} cardValue="$0.03880" color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title1} cardValue="$0.046929" color="#2B1BBF" />
           <TokenInfoCard cardTitle={title2} cardImg={TotalsupplyImg} cardValue="$0.78M" color="#BF1B2C" />
           <TokenInfoCard cardTitle={title3} cardImg={LiquidityImg} cardValue="$171.10K" color="#2B1BBF" />
         </Flex>

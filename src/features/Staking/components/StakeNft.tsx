@@ -15,7 +15,7 @@ const StakeCard: React.FC<StakeCardProps> = ({ children, imageUrl }) => {
           <Image w={'full'} src={imageUrl} />
         ) : (
           <Box w={'full'} textAlign={'center'} alignItems={'center'} h={282} bg={'#222222'} rounded={10} alignContent={'center'}>
-            <Text fontSize={'xl'}>Coming Soon</Text>
+            <Text fontSize={'xl'}>Coming Soon Now</Text>
           </Box>
         )}
       </Box>
