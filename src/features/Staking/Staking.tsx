@@ -21,7 +21,7 @@ export default function Staking() {
   const { t } = useTranslation()
   const { activeStakePools, isLoading } = useFetchStakePools({})
   const { lpBasedData } = useFarmPositions({})
-  const [isNft, setIsNft] = useState<boolean>(true)
+  const [isNft, setIsNft] = useState<boolean>(false)
 
   return (
     <Box>

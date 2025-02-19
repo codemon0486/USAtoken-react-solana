@@ -1,4 +1,4 @@
-import { Button, Box, Text, Flex } from '@chakra-ui/react'
+import { Button, Box, Text, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 
 interface StakeBoxProps {
   title: string
@@ -95,54 +95,46 @@ export default function StakeUs() {
               justifyContent="space-between"
               borderRadius="20px"
             >
-              <InfoBox title="Staked Amount" value="0.00 USA" />
-              <InfoBox title="APR" value="3.7%" />
+              <InfoBox title="Staked Amount" value="0.76 USA" />
+              <InfoBox title="APR" value="25%" />
             </Box>
             <Box
               mt={{ base: '20px', sm: '20px' }}
               w={{ base: '90%', sm: '90%' }}
-              h={{ base: '60px', sm: '60px' }}
+              h="16"
               display="flex"
               justifyContent="center"
               bg="#222222"
               border="1px solid rgba(255, 255, 255, 0.1)"
               borderRadius="10px"
             >
-              <Box display="flex" w="90%" alignItems="center" justifyContent="space-between">
-                <Text
-                  width={{ sm: '101px', base: '70px' }}
-                  height="23px"
-                  fontWeight="400"
-                  fontSize={{ sm: '20px', base: '15px' }}
-                  lineHeight="23px"
-                  textAlign="center"
-                  color="#2E2E2E"
-                >
-                  Amount
-                </Text>
-                <Box
-                  width={{ sm: '101px', base: '70px' }}
-                  height="39px"
+              <InputGroup w="100%">
+                <Input
+                  type="number"
+                  placeholder="Amount"
                   bg="#222222"
-                  border="1px solid rgba(255, 255, 255, 0.1)"
-                  display="flex"
-                  justifyContent="center"
-                  borderRadius="10px"
-                >
+                  color="white"
+                  h="full"
+                  w="full"
+                  fontSize={{ sm: '20px', base: '15px' }}
+                  _placeholder={{ color: 'gray.400' }}
+                />
+                <InputRightElement w="98px" mt={3} alignItems="center" justifyContent="center">
                   <Text
-                    width="71px"
-                    height="25px"
-                    fontWeight="400"
-                    fontSize={{ sm: '30px', base: '20px' }}
-                    lineHeight="32px"
-                    textAlign="center"
-                    color="#2E2E2E"
-                    fontFamily={'AMCAP Eternal'}
+                    h="100%"
+                    bg="#222222"
+                    border="1px solid rgba(255, 255, 255, 0.1)"
+                    color="white"
+                    fontSize={{ sm: '16px', base: '12px' }}
+                    borderRadius="10px"
+                    _hover={{ bg: 'gray.700' }}
+                    alignItems="center"
+                    p={2}
                   >
-                    max
+                    Max
                   </Text>
-                </Box>
-              </Box>
+                </InputRightElement>
+              </InputGroup>
             </Box>
           </Box>
         </Box>
