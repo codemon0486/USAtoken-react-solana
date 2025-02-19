@@ -364,7 +364,7 @@ function PendingRewards(props: { token: ApiV3Token; pendingAmount: number | stri
   )
 }
 
-function AvailableStakeTokenButtons(props: {
+export function AvailableStakeTokenButtons(props: {
   symbol: string
   canStake: boolean
   canUnStake: boolean
@@ -439,7 +439,7 @@ function AvailableStakeTokenButtons(props: {
   )
 }
 
-function AvailableStakeTokenInfoBox(props: { token: ApiV3Token; stakedVolume: string | number; balance: string }) {
+export function AvailableStakeTokenInfoBox(props: { token: ApiV3Token; stakedVolume: string | number; balance: string }) {
   const { t } = useTranslation()
   return (
     <VStack align={'start'} spacing={[0, 2]}>

@@ -1,5 +1,5 @@
-import { Button, Box, Text, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
-
+import { Button, Box, Text, Flex, Input, HStack, InputGroup, InputRightElement } from '@chakra-ui/react'
+import { AvailableStakeTokenButtons, AvailableStakeTokenInfoBox } from './StakingPoolItem'
 interface StakeBoxProps {
   title: string
   amount: string
@@ -186,6 +186,15 @@ export default function StakeUs() {
             <SummaryBox leftText="Reward Fee" rightText="303030303 USA" />
           </Box>
         </Box>
+        <HStack justify={'space-between'} rounded="xl" py={[4, 5]} px={[5, 8]}>
+          <AvailableStakeTokenButtons
+            canStake={true}
+            canUnStake={true}
+            symbol="xxx"
+            onClickStake={() => console.log('onclick stake')}
+            onClickUnstake={() => console.log('onclick unstake')}
+          />
+        </HStack>
       </Box>
     </Flex>
   )

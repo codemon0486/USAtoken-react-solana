@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { ReactNode, useRef, useState } from 'react'
+import React, { ReactNode, useRef, useState, useEffect } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import MobileDesktop, { Desktop, Mobile } from '../MobileDesktop'
 import SolWallet from '../SolWallet'
@@ -88,12 +88,30 @@ function AppNavLayout({
   const isMobile = useAppStore((s) => s.isMobile)
   const betaTooltipRef = useRef<HTMLDivElement>(null)
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+  const [tokenData, setTokenData] = useState<number | any>([])
+  const tokenPrice = '$' + tokenData[0]?.priceUsd
   const closeBetaTooltip = () => {
     if (betaTooltipRef.current) {
       betaTooltipRef.current.style.animation = `${fadeOut} 0.5s forwards`
       setTimeout(() => onClose(), 500)
     }
   }
+
+  useEffect(() => {
+    const fetchTokenData = async () => {
+      try {
+        const response = await fetch('https://api.dexscreener.com/token-pairs/v1/solana/GAYCVRGZH2tHms1c5sCprE2JEbuz8tJ9ZxCNUX1cKwWR', {
+          method: 'GET',
+          headers: {}
+        })
+        const data = await response.json()
+        setTokenData(data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+    fetchTokenData()
+  }, [])
 
   const [toggle, setToggle] = useState<boolean>(false)
 
@@ -168,7 +186,7 @@ function AppNavLayout({
             textColor="#E6C066"
             fontFamily={'Konexy Personal Use'}
           >
-            $ 0.004077
+            {tokenPrice}
           </Text>
         </Box>
         {/* <Mobile>

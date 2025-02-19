@@ -12,6 +12,8 @@ import VolumeImg from '../../../../../public/images/dashboard/token-volume.png'
 import { useAppStore } from '@/store'
 import { Connection, PublicKey } from '@solana/web3.js'
 import { getAccount, getAssociatedTokenAddress, AccountLayout } from '@solana/spl-token'
+import useTokenBalance from '@/hooks/portfolio/useTokenBalance'
+import { formatCurrency } from '@/utils/numberish/formatter'
 
 export enum AssetType {
   STANDARD = 'Standard',
@@ -23,6 +25,7 @@ export default function SectionOverview() {
   const [loading, setLoading] = useState(true)
   const [tokenData, setTokenData] = useState<number | any>([])
   const [balance, setBalance] = useState<number | any>(null)
+  const { idleList, idleBalance } = useTokenBalance()
 
   const publicKey = useAppStore((s) => s.publicKey)
   const walletAddress = publicKey?.toBase58()
@@ -97,6 +100,7 @@ export default function SectionOverview() {
     }
     fetchTokenData()
   }, [])
+  // const solBalance = {}
 
   const productiveBalance = totalClmmPosition.add(totalStandardPosition).toString()
   const title1 = 'Token Price'
@@ -194,7 +198,7 @@ export default function SectionOverview() {
                     ▲
                   </Text>
                   <Text textColor="#E6C066" fontSize={{ base: '26px ', md: '30px' }}>
-                    $3777
+                    {formatCurrency(idleBalance.toString(), { symbol: '$', decimalPlaces: 2 })}
                   </Text>
                 </Flex>
               </Flex>
@@ -208,14 +212,14 @@ export default function SectionOverview() {
         </Box>
 
         <Flex className="simplegrid" gap={[3, 6]} mx={[-5, 0]} mb={10} px={[5, 0]}>
-          <TokenInfoCard cardTitle={title1} cardValue="$0.046929" color="#2B1BBF" />
-          <TokenInfoCard cardTitle={title2} cardImg={TotalsupplyImg} cardValue="$0.78M" color="#BF1B2C" />
-          <TokenInfoCard cardTitle={title3} cardImg={LiquidityImg} cardValue="$171.10K" color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title1} cardValue={tokenPrice} color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title2} cardImg={TotalsupplyImg} cardValue={fdv} color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title3} cardImg={LiquidityImg} cardValue={liquidity} color="#2B1BBF" />
         </Flex>
         <Flex className="simplegrid" gap={[3, 6]} mx={[-5, 0]} px={[5, 0]}>
-          <TokenInfoCard cardTitle={title4} cardImg={MarketcapImg} cardValue="$0.78M" color="#BF1B2C" />
-          <TokenInfoCard cardTitle={title5} cardImg={VolumeImg} cardValue="$87.81K" color="#2B1BBF" />
-          <TokenInfoCard cardTitle={title6} cardValue="-2.22%" color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title4} cardImg={MarketcapImg} cardValue={marketcap} color="#BF1B2C" />
+          <TokenInfoCard cardTitle={title5} cardImg={VolumeImg} cardValue={dailyVolume} color="#2B1BBF" />
+          <TokenInfoCard cardTitle={title6} cardValue={priceChange} color="#BF1B2C" />
         </Flex>
 
         <Box bg="#222" borderY="1px solid #E6C066" mt={14} p={6} borderRadius="md" color="white" fontFamily="monospace" width="100%">
